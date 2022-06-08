@@ -8,6 +8,10 @@ from application.models import CustomerForm, Customer
 def home():
     return render_template('home.html')
 
+@app.route('/placeOrder')
+def placeOrder():
+    return render_template('placeOrder.html')
+
 
 
 @app.route('/contact')
