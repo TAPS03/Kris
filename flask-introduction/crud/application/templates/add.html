@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+<body>
+
+
+    <p>
+        <div class='form'>
+            <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.f_name.label }} {{ form.f_name }}
+                <br>
+                {{ form.l_name.label }} {{ form.l_name }}
+                <br>
+                {{ form.submit }}
+                <br>
+            </form>
+        </div>
+    </p>
+</body>
+
+<style>
+
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; }
+    
+</style>
+
+
+
+
+<img src="https://www.booktrust.org.uk/globalassets/images/illustrations/kate-alizadeh-0-1/jpegs/kate-alizadeh-best-new-books-16x9.jpg" alt="book">
+
+{% endblock body %}
