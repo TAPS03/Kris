@@ -22,7 +22,7 @@ def add_customer():
             new_customer= Customer(f_name=form.f_name.data, l_name=form.l_name.data)
             db.session.add(new_customer)
             db.session.commit()
-            return render_template('put_thought.html', message = "Thank you {f_name} {l_name}, you have been added.")
+            return render_template('put_thought.html', message = "Thank you {f_name} {l_name}, you have been added.",form= form)
     return render_template('add.html', form=form)
 
 
