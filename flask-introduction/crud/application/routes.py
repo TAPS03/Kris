@@ -28,18 +28,18 @@ def add_customer():
 
 @app.route('/put_thought', methods=["GET", "POST"])
 def put_thought():
-    form= ThoughtsForm()
+    thoughtsform= ThoughtsForm()
     customers = Customer.query.all()
-    for Customer in customers:
-        form.customer_id.choices.append(
-            (Customer.id, f"{Customer.f_name} {Customer.l_name}"))
+    for customer in customers:
+        thoughtsform.persons_thoughts.choices.append(
+            (customer.id, f"{customer.f_name} {customer.l_name}"))
     if request.method == 'POST':
-        if form.validate_on_submit():
-            new_thought= Thoughts(favourite_book=form.favourite_book.data,rating= form.rating.data,why_like_book=form.why_like_book.data,compare=form.compare.data,customer_id= form.persons_thoughts.data) 
+        if thoughtsform.validate_on_submit():
+            new_thought= Thoughts(favourite_book=thoughtsform.favourite_book.data,rating= thoughtsform.rating.data,why_like_book=thoughtsform.why_like_book.data,compare=thoughtsform.compare.data,customer_id= thoughtsform.persons_thoughts.data) 
             db.session.add(new_thought)
             db.session.commit()
             return render_template('account.html')
-    return render_template('/put_thought', form= form)
+    return render_template('put_thought.html', form= thoughtsform)
    
         
 

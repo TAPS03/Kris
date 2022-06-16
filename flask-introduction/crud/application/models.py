@@ -1,9 +1,8 @@
 from flask import render_template
-from jsonschema import ValidationError
 from application import db
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, ValidationError
 
 
 class Customer(db.Model):
@@ -34,8 +33,8 @@ class CustomerForm(FlaskForm):
     f_name = StringField("First Name:" , validators=[DataRequired()] )
     l_name = StringField("Last Name: ", validators=[DataRequired()] )
     submit = SubmitField("Create")
-    def stop_duplication(self,name):
-        name_dupe= Customer.query.filter_by(f_name=name.data).first()
+    def stop_duplication(self,f_name):
+        name_dupe= Customer.query.filter_by(f_name=f_name.data).first()
         if name_dupe:
             raise ValidationError ("This name already exists")
 

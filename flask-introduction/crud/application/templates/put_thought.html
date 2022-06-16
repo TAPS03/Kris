@@ -1,21 +1,24 @@
-{% extends 'layout.html' %}
+{% extends "layout.html" %}
 
 {% block body %}
 
 <h1>        Add your Thoughts              </h1>
-
-<div class='form'>
-    <form method='POST' action=''>
-        {{ form.hidden_tag() }}
-        {{ form.favourite_book.label }} {{ form.favourite_book }}
-        {{ form.rating.label }} {{ form.rating }}
-        {{ form.why_like_book.label }} {{ form.why_like_book }}
-        {{ form.compare.label }} {{ form.compare }}
-        {{ form.persons_thoughts.label }} {{ form.persons_thoughts }}
-    </form>
-
-</div>
-
+<body>
+    <div class='form'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            {{ form.favourite_book.label }} {{ form.favourite_book }}
+            <br>
+            {{ form.rating.label }} {{ form.rating }}
+            <br>
+            {{ form.why_like_book.label }} {{ form.why_like_book }}
+            <br>
+            {{ form.compare.label }} {{ form.compare }}
+            <br>
+            {{ form.persons_thoughts.label }} {{ form.persons_thoughts }}
+        </form>
+    </div>
+</body>
 
 
 
