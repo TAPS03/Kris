@@ -39,3 +39,7 @@ class CustomerForm(FlaskForm):
             raise ValidationError ("This name already exists")
 
 
+class UpdateCustomer(FlaskForm):
+    f_name = StringField("First Name:" , validators=[DataRequired()] )
+    l_name = StringField("Last Name: ", validators=[DataRequired()] )
+    submit = SubmitField("Update")

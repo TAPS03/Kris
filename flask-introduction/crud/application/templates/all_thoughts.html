@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h2>People's Thoughts:</h2>
+
+{% for all_customer in all_customers %}
+   <b> Person:</b> {{all_customer.f_name }}
+<br>
+
+
+
+<button><span><a href="{{ url_for('updatecustomer', f_name=all_customer.f_name) }}">Edit</a></span></button>
+
+
+<button><span><a href="{{ url_for('deletecustomer', f_name=all_customer.f_name) }}">Delete</a></span></button>
+<br>
+{% endfor %}
+{% for all_thought in all_thoughts %}
+    <b>People's thoughts</b>{{all_thought.customer.f_name}}
+    <b>Favourite Book:</b> {{ all_thought.favourite_book }}
+<br>
+    <b>Rating out of 10:</b> {{ all_thought.rating }}
+<br>
+    <b>Why you like the book:</b> {{ all_thought.why_like_book }}
+<br>
+    <b>Compared to their favourite book:</b> {{ all_thought.compare }}
+<br>
+    <b>Name of persons thoughts:</b> {{ all_thought.persons_thoughts }}
+<br>
+<button><span><a href="{{ url_for('deletethoughts', f_name=all_thoughts.f_name) }}">Delete Thoughts</a></span></button>
+
+
+{% endfor %}
+
+
+
+{% endblock body %}
